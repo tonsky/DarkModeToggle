@@ -129,10 +129,12 @@ class StatusBarController: ObservableObject {
     
     private func updateMenuItems() {
         if let lightItem = menu.item(withTitle: "Go Light") {
-            lightItem.isEnabled = dark
+            // lightItem.isEnabled = dark
+            lightItem.state = dark ? .off : .on
         }
         if let darkItem = menu.item(withTitle: "Go Dark") {
-            darkItem.isEnabled = !dark
+            // darkItem.isEnabled = !dark
+            darkItem.state = dark ? .on : .off
         }
         if let launchItem = menu.item(withTitle: "Launch at login") {
             launchItem.state = launch ? .on : .off
